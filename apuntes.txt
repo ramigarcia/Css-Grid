@@ -1,0 +1,150 @@
+grid-container: Va a ser el elemento PADRE que va a tener puesto un nuevo tipo de 'display: grid;'
+(nos permite colocar otras porpiedades para manipular nuestro layout)
+
+-------------MUESTRA----------------
+<section class="container">
+</section>
+
+-------------APUNTES----------------
+grid-item: Son nuestro componente, contenido, lo que vamos a manejar. Nuestras filas o columnas que vamos a mover a nuestro gusto. 
+Son hijos directos de grid.
+
+-------------MUESTRA----------------
+<section class="container">
+  <div class="item">contenido#1</div>
+  <div class="item">contenido#2</div>
+  <div class="item">contenido#3</div>
+</section>
+
+-------------APUNTES----------------
+--------GRID--------
+grid line: Líneas divisoras Horizontales y Verticales.
+grid track: Espacio entre dos líneas adyacentes. FILAS Y COLUMNAS.
+grid cell: Celdas, espacio entre dos FILAS adyacentes y 2 COLUMNAS adyacentes.
+grid area: Espacio rodeado por 4 grid line.
+grid-template-columns: (tamaño de numero de columnas que yo quiero);
+
+--------GRID EXPLICIT, IMPLICIT--------
+Grid explicito (explicit grid): Es cuando nosotros definimos el numero de filas o columnas.
+Grid implicit (implicit grid): Es cuando tenemos filas o columnas que no definimos pero son parte de nuestro grid.
+
+--------GRID TEMPLATE--------
+grid-template: filas / valor;
+grid-template-column: valor;
+grid-template-row: valor;
+
+--------GRID DENTRO DE OTRO--------
+Para poder ingresar un grid dentro de otro grid hay que utilizar => 'display: grid;' 
+Luego definir los tamaños con 'grid-template: 300px 100px 100px;'
+
+--------DISPLAY--------
+display: grid; => Nos otorga nuevas propiedades.
+display: subgrid; => Hereda la configuración del grid padre
+(CUANDO SE ESTEN ANIDANDO GRIDS).
+display: inline-grid; => Muestra el grid en una sola línea.
+
+--------GAP--------
+Para definir espaciado entre COLUMNAS usamos => 'columns-gap: valor;'
+Para definir espaciado entre FILAS usamos => 'row-gap: valor;'
+Para definir espaciado entre FILAS y COLUMNAS en una sola línea de código usamos => 'gap: filas(valor) columnas(valor); '
+
+--------REPETIDORES, UNIDADES de MEDIDA y FUNCIONES--------
+
+--------UNIDADES de MEDIDA--------
+Asi como existen los: 'px' 'em' 'rem'[...]
+También exiten las unidades de medida 'fr' (FRACCIONES)
+FRACCIONES: distribuye el espacio disponible en formas iguales.
+
+--------FUNCIONES--------
+repeat(cantidad, valor) => SIRVE PARA USAR EL MISMO VALOR LAS VECES QUE LE INDIQUES
+minmax(min, max) => SIRVE PARA AGREGAR UN VALOR MÍNIMO Y UN VALOR MAXIMO AL MOMENTO DE HACER RESPONSIVE
+
+--------AREAS DE CONTENIDO--------
+Para definir las areas
+Si vamos a usar area en más de una columna colocamos el mismo donde del area donde la queramos. Ejemplo:
+
+grid-template-areas: "header header"
+                                 "left contenido"
+                                 "footer footer";
+Para usar estas areas:
+
+.header {
+	grid-area: header:
+}
+
+--------TAMAÑO DE FILAS--------
+Definir el tamaño de las filas dentro de un grid:
+
+grid-row-start: valor;
+grid-row-end: valor;
+Igual que las columnas para escribir esto en una sola linea:
+
+grid-row: inicio / final;
+
+!----RECORDATORIO: LAS FILAS VAN EN VERTICAL HACIA ABAJO Y LAS COLUMNAS EN HORIZONTAL HACIA LA DERECHA----!
+
+--------NOMBRE DE FILAS--------
+Para nombrar lineas colocamos el nombre entre [ ]. Ejemplo:
+
+grid-template-columns: [inicio] 1fr [linea2] 1fr [final];
+En estos casos no podemos usar la función repeat()
+
+--------GRID IMPLICITO--------
+Para cambiar el flujo automático de mi grid:
+
+grid-auto-flow: column;
+Por defecto viene grid-auto-flow: row;
+Para asignar el valor por defecto de el espacio de las columnas o filas que no han sido asignadas:
+
+grid-auto-columns: valores;
+grid-auto-rows: valores;
+
+--------ALINEACION DE CONTENIDO--------
+Para alinear contenido:
+justify-items: valor; para alineación horizontal
+align-items: valor; para alineación vertical
+Los valores que toman por defecto es stretch el cual hace que tomen todo el valor asignado en la fila o columna.
+
+Para asignar la alineación de un solo elemento podemos usar:
+
+align-self: valor;
+justify-self: valor;
+
+Alineación de contenido
+justify-items (Horizontal)
+
+justify-items: value;
+VALUES:
+start : contenido hacia la izquierda
+end : contenido hacia la derecha
+center : contenido al medio
+stretch : estira el contenido al espacio que nos de el grid
+
+align-items (Vertical)
+
+align-items: value;
+VALUES:
+start : contenido hacia arriba
+end : contenido hacia la abajo
+center : contenido al medio
+stretch : estira el contenido al espacio que nos de el grid
+
+ALINEACIÓN INDIVIDUAL
+
+justify-self (HORIZONTAL)
+align-self (VERTICAL )
+
+--------ALINEACION DE FILAS Y COLUMNAS--------
+
+Para alinear todo el contenido utilizaremos:
+justify-content: De manera horizontal.
+align-content: De manera vertical.
+
+Reciben los siguientes valores:
+-start: Alinea hacia la derecha
+-end:Alinea hacia la izquierda
+-center: Lo centra
+-space around: Da el mismo espacio en la derecha que en la izquierda de un elemento.
+-space everly: Lo distribuye de manera un poco mas homogenea.
+-space between: Espaciado solo interno , lo demás se va hacia los costados.
+

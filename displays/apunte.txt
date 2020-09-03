@@ -1,0 +1,3 @@
+Para poder ingresar un grid dentro de otro, hay que utilizar => 'display: grid;' 
+LUEGO DEFINIMOS LOS TAMAÑOS => 'grid-template: FILAS(valor) / COLUMNAS(valor)'
+(SIN ---'display: grid;'--- ESTO NO FUNCIONA)
